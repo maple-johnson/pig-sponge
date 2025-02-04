@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Pig {
 
     /*
@@ -15,7 +17,8 @@ public class Pig {
     * pigLatin("y")  should return "yay"
     * pigLatin("e")   should return "e"
     */
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         // Test cases
         assertEqual(1, pigLatin("something"), "omethingsay");
         assertEqual(2, pigLatin("awesome"), "awesome");
@@ -25,12 +28,51 @@ public class Pig {
     }
 
     // Implement your solution here!
-    public static String pigLatin(String sentence) {
-        return null;
+    public static String pigLatin(String sentence) 
+    {
+          //Set inputs to lowercase     
+          String lowerSentence = sentence.toLowerCase();
+
+          //ArrayList<String> words = new ArrayList<String>();
+          //String[] words = lowerSentence.split(" ");
+          //words.addAll(lowerSentence.split(" "));
+
+          /*
+           * Attempting to separate multiple words into an array.
+           * Each item can then be fed through a while loop to convert each word into pig latin
+           */
+
+          // while ()) {
+               
+          // }
+          
+          // If word starts with a vowel
+          if (lowerSentence.startsWith("a") || lowerSentence.startsWith("e") || lowerSentence.startsWith("i") || lowerSentence.startsWith("o") || lowerSentence.startsWith("u")) 
+          {
+               // Return word as was
+               return lowerSentence;
+          }
+          else
+          {
+               // Set up the suffix by taking the first letter anc adding "ay"
+               String end = lowerSentence.charAt(0) + "ay";
+
+               // Add the word without the first letter and the suffix
+               String newSentence = lowerSentence.substring(1) + end;
+
+               // Return new word
+               return newSentence;
+          }
+
     }
 
 
-
+    /*
+     * take string
+     * lowercase
+     * return as pig latin
+     * ---if starts with vowel, no change
+     */
 
 
 
