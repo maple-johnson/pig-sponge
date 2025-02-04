@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pig {
 
@@ -27,42 +28,41 @@ public class Pig {
         assertEqual(5, pigLatin("e"), "e");
     }
 
+    /*
+     * Need to solve spacing issue
+     */
     // Implement your solution here!
     public static String pigLatin(String sentence) 
     {
-          //Set inputs to lowercase     
+          // Set inputs to lowercase     
           String lowerSentence = sentence.toLowerCase();
 
-          //ArrayList<String> words = new ArrayList<String>();
-          //String[] words = lowerSentence.split(" ");
-          //words.addAll(lowerSentence.split(" "));
+          // Set up variable for new pig latin sentence
+          String newSentence = "";
 
-          /*
-           * Attempting to separate multiple words into an array.
-           * Each item can then be fed through a while loop to convert each word into pig latin
-           */
-
-          // while ()) {
-               
-          // }
           
-          // If word starts with a vowel
-          if (lowerSentence.startsWith("a") || lowerSentence.startsWith("e") || lowerSentence.startsWith("i") || lowerSentence.startsWith("o") || lowerSentence.startsWith("u")) 
+          for (String item : lowerSentence.split(" ")) 
           {
-               // Return word as was
-               return lowerSentence;
-          }
-          else
-          {
-               // Set up the suffix by taking the first letter anc adding "ay"
-               String end = lowerSentence.charAt(0) + "ay";
+               // If word starts with a vowel
+               if (item.startsWith("a") || item.startsWith("e") || item.startsWith("i") || item.startsWith("o") || item.startsWith("u")) 
+               {
+                    // Add word to return variable as is
+                    newSentence += item;
+               }
+               else
+               {
+                    // Set up the suffix by taking the first letter anc adding "ay"
+                    String end = item.charAt(0) + "ay";
 
-               // Add the word without the first letter and the suffix
-               String newSentence = lowerSentence.substring(1) + end;
+                    // Add the word without the first letter and the suffix
+                    newSentence += item.substring(1) + end;
 
-               // Return new word
-               return newSentence;
+               }
+
           }
+
+          // Return pig latin sentence
+          return newSentence;          
 
     }
 
