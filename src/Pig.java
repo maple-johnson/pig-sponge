@@ -28,9 +28,7 @@ public class Pig {
         assertEqual(5, pigLatin("e"), "e");
     }
 
-    /*
-     * Need to solve spacing issue
-     */
+    
     // Implement your solution here!
     public static String pigLatin(String sentence) 
     {
@@ -47,12 +45,12 @@ public class Pig {
                if (item.startsWith("a") || item.startsWith("e") || item.startsWith("i") || item.startsWith("o") || item.startsWith("u")) 
                {
                     // Add word to return variable as is
-                    newSentence += item;
+                    newSentence += item + " ";
                }
                else
                {
                     // Set up the suffix by taking the first letter anc adding "ay"
-                    String end = item.charAt(0) + "ay";
+                    String end = item.charAt(0) + "ay ";
 
                     // Add the word without the first letter and the suffix
                     newSentence += item.substring(1) + end;
@@ -60,6 +58,9 @@ public class Pig {
                }
 
           }
+
+          // Fixed the spacing issue via PigSolution
+          newSentence = newSentence.substring(0, newSentence.length() - 1);
 
           // Return pig latin sentence
           return newSentence;          
