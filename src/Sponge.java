@@ -35,27 +35,37 @@ public class Sponge {
   public static String spongeCase(String sentence) 
   {
      //Turn String sentence into a CharArray
-     char[]  letters = sentence.toCharArray();
+     char[] letters = sentence.toCharArray();
 
+     //Create a count that starts at each new word
+     int wordSpacing = 1;
+
+     // Going through each letter in the letters array
      for (int i = 0; i < letters.length; i++) 
      {
-          if (letters[i] != ' ') // Need to solve spacing issue
+          if (letters[i] != ' ') // If the item in letters isn't a space
           {
-               if ((i + 1) % 2 == 1) // if odd
+               if (wordSpacing % 2 == 1) // If odd
                {
                     // Make lowercase
                     letters[i] = Character.toLowerCase(letters[i]);
                }
-               else // if even
+               else // If even
                {
-                    //Make uppercase
+                    // Make uppercase
                     letters[i] = Character.toUpperCase(letters[i]);
                }
+
+               // Increment wordSpacing as we traverse the char[]
+               wordSpacing++;
+
           }
-          else
+          else // If the item in letters is a space
           {
-               //Skip formatting
+               // Reset the wordSpacing to 1 for the upcoming new word
+               wordSpacing  = 1;
           }
+
      }
 
      
