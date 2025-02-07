@@ -32,8 +32,43 @@ public class Sponge {
   }
 
   // Implement your solution here!
-  public static String spongeCase(String sentence) {
-    return null;
+  public static String spongeCase(String sentence) 
+  {
+     //Turn String sentence into a CharArray
+     char[]  letters = sentence.toCharArray();
+
+     for (int i = 0; i < letters.length; i++) 
+     {
+          if (letters[i] != ' ') // Need to solve spacing issue
+          {
+               if ((i + 1) % 2 == 1) // if odd
+               {
+                    // Make lowercase
+                    letters[i] = Character.toLowerCase(letters[i]);
+               }
+               else // if even
+               {
+                    //Make uppercase
+                    letters[i] = Character.toUpperCase(letters[i]);
+               }
+          }
+          else
+          {
+               //Skip formatting
+          }
+     }
+
+     
+
+     // convert CharArray back to String
+     String alteredSentence = "";
+     for (char letter : letters) 
+     {
+          alteredSentence += letter;
+     }
+
+     //returning new string
+     return alteredSentence;
   }
 
 
